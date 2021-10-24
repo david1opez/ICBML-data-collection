@@ -1,0 +1,148 @@
+{
+    "Agar": {
+        "MC": {
+            "name": "MacConkey",
+            "ingredients": [
+                {
+                    "name": "Peptone",
+                    "amount": 17,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Proteose peptone",
+                    "amount": 3,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Lactose monohydrate",
+                    "amount": 10,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Bile salts",
+                    "amount": 1.5,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Sodium cholride",
+                    "amount": 5,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Neutral red",
+                    "amount": 0.03,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Crystal violet",
+                    "amount": 0.001,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Agar",
+                    "amount": 13.5,
+                    "unit": "grams"
+                },
+                {
+                    "name": "Destilled water",
+                    "amount": 1,
+                    "unit": "liters"
+                }
+            ],
+            "pH": 7.1,
+            "notes": [
+                "Isolates gram-negative enteric bacteria",
+                "Differentiates lactose fermenting from lactose non-fermenting gram-negative bacteria",
+                "Isolation of coliforms and intestinal pathogens",
+                "Lactose fermenting grow red or pink",
+                "Lactose non-fermenting are colourless and transparent"
+            ],
+            "bacterias": [
+                {
+                    "name": "Escherichia coli",
+                    "morphology": [
+                        "red/pink",
+                        "non-mucoid"
+                    ]
+                },
+                {
+                    "name": "Aerobacter aerogenes",
+                    "morphology": [
+                        "pink",
+                        "mucoid"
+                    ]
+                },
+                {
+                    "name": "Enterococcus",
+                    "morphology": [
+                        "red",
+                        "small",
+                        "round"
+                    ]
+                },
+                {
+                    "name": "Staphylococcus",
+                    "morphology": [
+                        "pale pink",
+                        "opaque"
+                    ]
+                },
+                {
+                    "name": "Pseudomonas aeruginosa",
+                    "morphology": [
+                        "brownish green",
+                        "fluorescent growth"
+                    ]
+                }
+            ]
+        },
+        "EMB": {
+            "name": "Eosin-methylene Blue",
+            "bacterias": []
+        },
+        "HEA" : {
+            "name": "Hektoen",
+            "bacterias": []
+        },
+        "MSA": {
+            "name": "Mannitol Salt",
+            "bacterias": []
+        },
+        "TSA": {
+            "name": "Tryptic Soy Agar",
+            "bacterias": []
+        },
+        "CHOC": {
+            "name": "Chocolate",
+            "bacterias": []
+        },
+        "CBA": {
+            "name": "Chocolate Blood",
+            "bacterias": []
+        },
+        "TMA": {
+            "name": "Thayer Martin",
+            "bacterias": []
+        },
+        "BA": {
+            "name": "Blood",
+            "bacterias": []
+        },
+        "TSBS": {
+            "name": "Thiosulfate-citrate-bile salts-sucrose",
+            "bacterias": []
+        },
+        "XLD": {
+            "name": "Xylose Lysine Deoxycholate",
+            "bacterias": []
+        },
+        "SS": {
+            "name": "Salmonella Shigella",
+            "bacterias": []
+        },
+        "BGA": {
+            "name": "Brilliant Green",
+            "bacterias": []
+        }
+    }
+}
