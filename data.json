@@ -1,148 +1,277 @@
 {
     "Agar": {
         "MC": {
-            "name": "MacConkey",
-            "ingredients": [
-                {
-                    "name": "Peptone",
-                    "amount": 17,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Proteose peptone",
-                    "amount": 3,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Lactose monohydrate",
-                    "amount": 10,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Bile salts",
-                    "amount": 1.5,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Sodium cholride",
-                    "amount": 5,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Neutral red",
-                    "amount": 0.03,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Crystal violet",
-                    "amount": 0.001,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Agar",
-                    "amount": 13.5,
-                    "unit": "grams"
-                },
-                {
-                    "name": "Destilled water",
-                    "amount": 1,
-                    "unit": "liters"
-                }
-            ],
+            "nombre": "Mac Conkey",
             "pH": 7.1,
-            "notes": [
-                "Isolates gram-negative enteric bacteria",
-                "Differentiates lactose fermenting from lactose non-fermenting gram-negative bacteria",
-                "Isolation of coliforms and intestinal pathogens",
-                "Lactose fermenting grow red or pink",
-                "Lactose non-fermenting are colourless and transparent"
+            "inhibe": [
+                "Enterococci",
+                "Staphylococci",
+                "Streptococci"
             ],
-            "bacterias": [
+            "notas": [
+                "Aísla bacterias entéricas gram-negativas",
+                "Diferencia la fermentación de lactosa de las bacterias gram-negativas no fermentadoras de lactosa",
+                "Aislamiento de coliformes y patógenos intestinales.",
+                "La fermentación de lactosa crece roja o rosa.",
+                "La lactosa no fermentadora es incolora y transparente."
+            ],
+            "ingredientes": [
                 {
-                    "name": "Escherichia coli",
-                    "morphology": [
-                        "red/pink",
-                        "non-mucoid"
-                    ]
+                    "nombre": "Peptona",
+                    "cantidad": 17,
+                    "unidades": "gramos"
                 },
                 {
-                    "name": "Aerobacter aerogenes",
-                    "morphology": [
-                        "pink",
-                        "mucoid"
-                    ]
+                    "nombre": "Peptona proteosa",
+                    "cantidad": 3,
+                    "unidades": "gramos"
                 },
                 {
-                    "name": "Enterococcus",
-                    "morphology": [
-                        "red",
-                        "small",
-                        "round"
-                    ]
+                    "nombre": "Lactosa monohidrato",
+                    "cantidad": 10,
+                    "unidades": "gramos"
                 },
                 {
-                    "name": "Staphylococcus",
-                    "morphology": [
-                        "pale pink",
-                        "opaque"
-                    ]
+                    "nombre": "Sales biliares",
+                    "cantidad": 1.5,
+                    "unidades": "gramos"
                 },
                 {
-                    "name": "Pseudomonas aeruginosa",
-                    "morphology": [
-                        "brownish green",
-                        "fluorescent growth"
-                    ]
+                    "nombre": "Cloruro de sodio",
+                    "cantidad": 5,
+                    "unidades": "gramos"
+                },
+                {
+                    "nombre": "Rojo neutro",
+                    "cantidad": 0.03,
+                    "unidades": "gramos"
+                },
+                {
+                    "nombre": "Cristal violeta",
+                    "cantidad": 0.001,
+                    "unidades": "gramos"
+                },
+                {
+                    "nombre": "Agar",
+                    "cantidad": 13.5,
+                    "unidades": "gramos"
+                },
+                {
+                    "nombre": "Agua Destilada",
+                    "cantidad": 1,
+                    "unidades": "litros"
                 }
             ]
         },
         "EMB": {
-            "name": "Eosin-methylene Blue",
-            "bacterias": []
+            "nombre": "Eosina-azul de metileno",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "HEA" : {
-            "name": "Hektoen",
-            "bacterias": []
+            "nombre": "Hektoen",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "MSA": {
-            "name": "Mannitol Salt",
-            "bacterias": []
+            "nombre": "Sal de manitol",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "TSA": {
-            "name": "Tryptic Soy Agar",
-            "bacterias": []
+            "nombre": "Agar de soya tríptico",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "CHOC": {
-            "name": "Chocolate",
-            "bacterias": []
-        },
-        "CBA": {
-            "name": "Chocolate Blood",
-            "bacterias": []
+            "nombre": "Chocolate",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "TMA": {
-            "name": "Thayer Martin",
-            "bacterias": []
+            "nombre": "Thayer Martin",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "BA": {
-            "name": "Blood",
-            "bacterias": []
+            "nombre": "Sangre",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "TSBS": {
-            "name": "Thiosulfate-citrate-bile salts-sucrose",
-            "bacterias": []
+            "nombre": "Tiosulfato-citrato-sales biliares-sacarosa",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "XLD": {
-            "name": "Xylose Lysine Deoxycholate",
-            "bacterias": []
+            "nombre": "Desoxicolato de xilosa lisina",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "SS": {
-            "name": "Salmonella Shigella",
-            "bacterias": []
+            "nombre": "Salmonella Shigella",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
         },
         "BGA": {
-            "name": "Brilliant Green",
-            "bacterias": []
+            "nombre": "Verde Brillante",
+            "pH": 0,
+            "inhibe": [],
+            "notas": [],
+            "ingredientes": [
+                {
+                    "nombre": "",
+                    "cantidad": 0,
+                    "unidades": ""
+                }
+            ]
+        }
+    },
+
+
+
+    "Bacteria": {
+        "Vibrio": {
+            "vulnificus": {
+                "nombre": "Vibrio vulnificus",
+                "filo": "proteobacteria",
+                "agares": [],
+                "sintomas": [
+                    "vomito",
+                    "diarrea",
+                    "dolor abdominal",
+                    "shock septico",
+                    "lesiones con ampollas",
+                    "celulitis",
+                    "sepsis",
+                    "heridas necrotizantes"
+                ],
+                "gram": false,
+                "oxidasa": true,
+                "catalasa": true,
+                "temperatura": {
+                    "min": 16,
+                    "max": 43,
+                    "opt": 37
+                },
+                "pH": {
+                    "min": 6.8,
+                    "max": 10.2,
+                    "opt": 7.5
+                },
+                "morfologia": {
+                    "microscopica": [
+                        "anaerobia facultiva",
+                        "bacilo",
+                        "termolabiles",
+                        "flagelo polar",
+                        "no esporulados"
+                    ],
+                    "colonial": {
+                        "TCBS": ["Verdes"],
+                        "CV": ["Turquesa"]
+                    }
+                },
+                "pruebasBioquimicas": {
+                    "urea": false,
+                    "gelatinasa": true,
+                    "voguesProskauer": false,
+                    "NO3NO2": true,
+                    "glucosa_ag": null,
+                    "manitol": "variable",
+                    "arabinosa": false,
+                    "arginina": false,
+                    "lisina": true,
+                    "ornitina": true,
+                    "oxidasa": true,
+                    "NaCl0": false,
+                    "NaCl_3": true,
+                    "NaCl_6": true,
+                    "NaCl_8": false,
+                    "O129_10": "sensible",
+                    "O131_150": "sensible"
+                }
+            }
         }
     }
 }
