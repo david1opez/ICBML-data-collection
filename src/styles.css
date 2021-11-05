@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+@media (min-width: 600px) {
+    body {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:hover {
+    display: none;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.header .title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: inline-block;
+    width: 60%;
+}
+.icon {
+    text-align: center;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: rgb(155, 155, 155);
+    border: 2px solid rgb(155, 155, 155);
+    width: 20px;
+    height: 20px;
+    padding-top: 1px;
+    border-radius: 100px;
+    display: none;
+}
+
+/* AGAR SCROLLABLE */
+.agar-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.placeholder {
+    font-size: 1.1em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    display: inline-block;
+}
+.horizontal-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100vw;
+}
+.agar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.illustration {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #000;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    background-color: #fff;
+}
+.abbreviation {
+    font-weight: 700;
+    font-size: 0.9em;
+}
+.selected-agar {
+    margin-top: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* SUBMIT BUTTON */
+.submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: 700;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1rem;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+    flex-direction: row;
+    margin-top: 20px;
+    width: 60%;
+    border-radius: 20px;
+    text-align: center;
+}
+.dropdown .input {
+    width: 100%;
+    border: 2px solid #000;
+    background-color: transparent;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    height: 50px;
+    display: inline;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.dropdown .input input {
+    border: none;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    display: inline;
+    outline: none;
+    width: 75%;
+}
+
+.dropdown .input .arrow {
+    display: inline;
+}
+
+.dropdown .items {
+    overflow: auto;
+    max-height: 200px;
+    margin-top: 15px;
+    border: 2px solid #000;
+    margin-bottom: -20px;
+}
+
+.dropdown .items .bacteria {
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 0.8rem;
+}
+
+.inactive {
+    display: none
+}
+
+/* Camera styles */
+.camera-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.output {
+    position: absolute;
+    margin-top: 3px;
+}
+
+.output #photo {
+    border-radius: 10px;
+}
+
+.circle-overlay{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 4px solid #fff; 
+    border-radius: 50%;
+}
+
+/* Select option */
+.selectOptions {
+    background: #000;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.button1, .button2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.button2{
+    margin-top: 25px;
+}
+
+.button-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.icons {
+    width: 25px;
+    height: 25px;
+}
+
+#photo {
+    width: auto;
+    height: auto;
+    margin-bottom: 0px;
+}

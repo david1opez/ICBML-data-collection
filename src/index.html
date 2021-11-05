@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <title>BCI Data Collection</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="title">Bacterial Colonies Identification</h1>
+        <div class="icon">?</div>
+    </div>
+
+    <!-- Camera section -->
+
+    <div class="extradiv">
+    <div class="selectOptions">
+        <div class="button1">
+            <h1 class="button-title">Tomar foto</h1>
+            <img class="icons" src="camera.png" alt="camera">
+        </div>
+
+        <div class="button2">
+        <h1 class="button-title">Escoger archivo</h1>
+        <img class="icons" src="folder.png">
+        </div>
+    </div>
+    </div>
+
+    <div class="toggle inactive">
+        <div class="camera-section-container">
+        <video id="video" style="border-radius: 10px; object-fit: cover;"></video>
+        <div class="circle-overlay"></div>
+        <canvas id="canvas" style="display:none">
+        </canvas>
+        <div class="output">
+          <img id="photo" class="inactive">
+        </div>
+        </div>
+    </div>
+
+    <!-- Camera section -->
+    
+    <div class="dropdown">
+        <div>
+            <h1 class="placeholder">Bacteria</h1>
+            <div class="icon">?</div>
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Selecciona o escribe el nombre">
+            <div class="arrow">▼</div>
+        </div>
+        <div class="items inactive">
+        </div>
+    </div>
+
+    <div class="agar-container">
+        <div>
+            <h1 class="placeholder">Tipo de agar</h1>
+            <div class="icon">?</div>
+        </div>
+
+        <div class="horizontal-scroll">
+        </div>
+
+        <input type="text" class="selected-agar" placeholder="Selecciona o escribe el nombre">
+    </div>
+    <button class="submit-button">Subir</button>
+    <br>
+    <br>
+    <h5 style="font-weight: 500; text-align: center">
+        <strong>Contacto: </strong>
+        <br>
+        david_1opez@outlook.com
+    </h5>
+    <br><br><br><br>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+    </a>
+    <br>
+    <h6>Esta obra está autorizada bajo la</h6>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="font-size: 0.7em;">
+        Creative Commons Attribution 4.0 International License
+    </a>
+    <br><br><br>
+
+
+    <h6 style="font-weight: 500; text-align: center; width: 80%;">
+        Eres libre de compartir, copiar y redistribuir el material.
+        en cualquier medio o formato. Adaptar, remezclar, transformar y
+        construir sobre el material para cualquier propósito, incluso comercialmente
+        <br><br>
+        <strong>Bajo los siguientes términos:</strong>
+        <br><br>
+        * Debe otorgar el crédito correspondiente, proporcionar un enlace a la licencia e indicar si se realizaron cambios. Puede hacerlo de cualquier manera razonable, pero no de ninguna manera que sugiera que el licenciante lo respalda a usted o su uso.
+        <br><br>
+        * No puede aplicar términos legales o medidas tecnológicas que restrinjan legalmente a otros de hacer cualquier cosa que ya permita esta licencia.
+    </h6>
+    <br>
+    <br>
+        <h6 style="font-size: 0.5em; font-weight: 400; text-align: justify; width: 40%;"><strong>Disclaimer: </strong>
+            Este texto solo destaca algunas de las
+            características y términos de la licencia real.
+            No es una licencia y no tiene valor legal.
+            Debe revisar detenidamente todos los términos
+            y condiciones de la licencia real antes de utilizar
+            el material.
+        </h6>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="file" name="file" id="file" style="opacity: 0"/>
+</body>
+<script src="./app.js"></script>
+
+<script>
+    var width = 300;
+    var height = 0;
+
+    var streaming = false;
+
+    let image;
+
+    var video = document.getElementById('video');
+    var canvas = document.getElementById('canvas');
+    var photo = document.getElementById('photo');
+    var startbutton = document.getElementById('startbutton');
+    var circleoverlay = document.querySelector('.circle-overlay')     
+        
+    function startCamara() {navigator.mediaDevices.getUserMedia({video: {facingMode: {exact: "environment"}}})
+    .then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    })
+    .catch(function(err) {
+        console.log("An error occurred: " + err);
+    });
+
+    video.addEventListener('canplay', function(ev){
+      if (!streaming) {
+        height = video.videoHeight / (video.videoWidth/width);
+
+        video.setAttribute('width', width);
+        video.setAttribute('height', height);
+        canvas.setAttribute('width', width);
+        canvas.setAttribute('height', height);
+        streaming = true;
+      }
+    }, false);
+
+    circleoverlay.addEventListener('click', function(ev){
+      photo.classList.remove('inactive');
+      takepicture();
+      ev.preventDefault();
+    }, false);
+
+    clearphoto();}
+
+    function clearphoto() {
+        var context = canvas.getContext('2d');
+        context.fillStyle = "#AAA";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        var data = canvas.toDataURL('image/jpg');
+        photo.setAttribute('src', data);
+    }
+
+    function takepicture() {
+        var context = canvas.getContext('2d');
+        if (width && height) {
+            canvas.width = width;
+            canvas.height = height;
+            context.drawImage(video, 0, 0, width, height);
+
+            var data = canvas.toDataURL('image/png');
+            image = data;
+            photo.setAttribute('src', data);
+        } else {
+            clearphoto();
+        }
+    }
+
+    document.querySelector('.button1').addEventListener('click', () => {
+        document.querySelector('.extradiv').classList.add('inactive');
+        document.querySelector('.toggle').classList.remove('inactive');
+        startCamara();
+    });
+
+    document.querySelector('.button2').addEventListener('click', () => {
+        document.querySelector('.toggle').classList.remove('inactive');
+        document.querySelector('.extradiv').classList.add('inactive');
+        document.querySelector('.circle-overlay').classList.add('inactive');
+        document.querySelector('.output #photo').classList.remove('inactive');
+        document.querySelector('#file').click();
+
+        document.querySelector('#file').addEventListener('change', (e) => {
+            var file = e.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                stringLength = Math.round(((lengthInUtf8Bytes(e.target.result))/1000)/1024);
+                image = stringLength > 2 ? undefined : e.target.result;
+
+                if(stringLength > 2) {
+                    alert('La imagen es muy grande, el tamaño máximo es de 2mb');
+                    alert("Puedes comprimir tu imagen online en https://compressjpeg.com :)")
+                    window.open('index.html', '_self')
+                }
+                else if(stringLength >= 1) {
+                    if(confirm("La imagen es un poco grande, aún así podemos usarla, pero nos ayudaría mucho si la pudieras comprimir")) {
+                        alert("Puedes usar https://compressjpeg.com y después volverla a subir :)")
+                        window.open('https://compressjpeg.com')
+                        window.open('index.html', '_self')
+                    }
+                    else {
+                        alert("Okey, utilizaremos la imagen tal como está")
+                        document.querySelector('.output #photo').setAttribute('src', e.target.result);
+                        image = e.target.result;
+                    }
+                }
+                else {
+                    document.querySelector('.output #photo').setAttribute('src', e.target.result);
+                    image = e.target.result;
+                }
+            }
+            reader.readAsDataURL(file);
+            photo.style.width = '250px';
+            photo.style.height = '250px';
+            photo.style.marginBottom = '80px'
+            document.querySelector('.output').style.zIndex=-1;
+            document.querySelector('.camera-section-container').style.marginTop = "80px"
+            document.querySelector('.camera-section-container').style.marginBottom = "30px"
+
+            document.querySelector(".toggle").addEventListener("click", () => {
+                document.querySelector("#file").click();
+            });
+        });
+
+    });
+
+    function lengthInUtf8Bytes(str) {
+        var m = encodeURIComponent(str).match(/%[89ABab]/g);
+        return str.length + (m ? m.length : 0);
+    }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyD5Qrp5wEVQBVfqJUN8hlTtSrCDY8tUmCE",
+    authDomain: "bci-data.firebaseapp.com",
+    projectId: "bci-data",
+    storageBucket: "bci-data.appspot.com",
+    messagingSenderId: "88383590126",
+    appId: "1:88383590126:web:2c762232549154fa5dadff"
+  };
+    const app = firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+</script>
+
+<script>
+    document.querySelector('.submit-button').addEventListener('click', function() {
+        var docRef = db.collection("Data").doc(agar_name);
+        let image_array;
+
+        docRef.get().then((doc) => {
+            if(image === undefined) {
+                alert("No olvides agregar una imagen")
+            }
+            else if(genus === undefined) {
+                alert("Parece que faltó agregar el nombre de la bacteria. Puedes seleccionar uno de la lista o escribirlo si no lo encuentras :)")
+            }
+            else if(agar_name === undefined) {
+                alert("Parece que falto agregar el agar que utilizaste. Puedes seleccionar uno de la lista o escribirlo si no lo encuentras :)")
+            }
+            else {
+                if(doc.exists) {
+                    try{
+                        image_array = doc.data()[genus][species]
+                        image_array.push(image);
+                        docRef.update({
+                            [genus]: {
+                                [species]: image_array
+                            }
+                        })
+                        .then(() => {
+                            alert("La imagen se ha agregado a nuestro data set, muchas gracias por colaborar :)")
+                            window.open('index.html', '_self')
+                        })
+                    }
+                    catch(err) {
+                        image_array = [];
+                        image_array.push(image);
+
+                        var route = `${genus}.${species}`
+                        
+                        try {
+                            docRef.update({
+                                [route]: image_array
+                            })
+                            .then(alert("La imagen se ha agregado a nuestro data set, muchas gracias por colaborar :)"))
+                        }
+                        catch(err) {
+                            docRef.set({
+                                [genus]: {
+                                    [species]: image_array
+                                }
+                            })
+                            .then(alert("La imagen se ha agregado a nuestro data set, muchas gracias por colaborar :)"))
+                        }
+                    }
+                }
+                else {
+                    docRef.set({
+                        [genus]: {
+                            [species]: [image]
+                        }
+                    })
+                    .then(() => {
+                        alert("La imagen se ha agregado a nuestro data set, muchas gracias por colaborar :)")
+                        window.open('index.html', '_self')
+                    })
+                }
+            }
+        })
+    });
+</script>
+
+</html>
